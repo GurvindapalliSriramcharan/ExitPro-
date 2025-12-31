@@ -14,7 +14,7 @@ function FacultyLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/faculty/login', { email, password });
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/faculty/login`, { email, password });
       const { branch } = response.data;
       localStorage.setItem('facultyEmail', email);
       localStorage.setItem('facultyBranch', branch);

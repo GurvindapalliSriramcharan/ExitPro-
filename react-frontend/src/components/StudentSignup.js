@@ -26,7 +26,7 @@ function StudentSignup() {
     e.preventDefault();
     
     try {
-      const response = await axios.post('/student/signup', formData, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/student/signup`, formData, {
         headers: { 'Content-Type': 'application/json' }
       });
       setMessage('✅ ' + response.data.message);

@@ -19,7 +19,7 @@ function RequestPermission() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/student/request-permission', {
+      await axios.post(`${process.env.REACT_APP_API_URL}/student/request-permission`, {
         email,
         reason,
         from_time: fromTime,
@@ -36,7 +36,7 @@ function RequestPermission() {
 
   const fetchStatus = useCallback(async () => {
     try {
-      const response = await axios.get(`/student/status?email=${email}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/student/status?email=${email}`);
       setStatus(response.data.status);
     } catch (error) {
       setStatus('Error fetching status');

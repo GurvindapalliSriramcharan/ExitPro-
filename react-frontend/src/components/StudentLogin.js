@@ -16,7 +16,7 @@ function StudentLogin() {
     
     try {
       // eslint-disable-next-line no-unused-vars
-      await axios.post('/student/login', {
+      await axios.post(`${process.env.REACT_APP_API_URL}/student/login`, {
         email: fullEmail,
         password
       });

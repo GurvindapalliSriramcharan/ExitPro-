@@ -11,7 +11,7 @@ function ParentVerifyOTP() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/parent/verify-otp', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/parent/verify-otp`, {
         student_email: email,
         otp
       });

@@ -18,7 +18,7 @@ function SecurityPortal() {
 
   const loadRequests = async () => {
     try {
-      const response = await axios.get('/security/accepted-outings');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/security/accepted-outings`);
       setRequests(response.data.requests);
     } catch (error) {
       console.error('Error loading requests:', error);
@@ -27,7 +27,7 @@ function SecurityPortal() {
 
   const handleCheckout = async (id, rollNo, name) => {
     try {
-      await axios.post('/security/checkout', { id, rollNo, name });
+      await axios.post(`${process.env.REACT_APP_API_URL}/security/checkout`, { id, rollNo, name });
       setMessage('Checked out successfully');
       loadRequests(); // Refresh the list
     } catch (error) {

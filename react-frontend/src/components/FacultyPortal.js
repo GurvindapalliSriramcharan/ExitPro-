@@ -13,7 +13,7 @@ function FacultyPortal() {
 
   const loadRequests = useCallback(async () => {
     try {
-      const response = await axios.get(`/faculty/pending-requests?branch=${encodeURIComponent(facultyBranch)}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/faculty/pending-requests?branch=${encodeURIComponent(facultyBranch)}`);
       setRequests(response.data.requests);
     } catch (error) {
       console.error('Error loading requests:', error);
@@ -30,7 +30,7 @@ function FacultyPortal() {
 
   const handleDecision = async (id, decision) => {
     try {
-      await axios.post('/faculty/approve', { id, decision, facultyBranch });
+      await axios.post(`${process.env.REACT_APP_API_URL}/faculty/approve`, { id, decision, facultyBranch });
       alert(`${decision} successfully`);
       loadRequests();
     } catch (error) {
