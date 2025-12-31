@@ -36,13 +36,7 @@ app.use('/parent', require('./routes/parent'));
 app.use('/faculty', require('./routes/faculty'));
 app.use('/security', require('./routes/security'));
 
-// Serve static files from react-frontend build
-app.use(express.static(path.join(__dirname, '../react-frontend/build')));
-
-// Catch all handler: send back React's index.html file
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../react-frontend/build/index.html'));
-});
+// API-only backend - static files served by Netlify frontend
 
 app.listen(PORT, '0.0.0.0', () => {
   const localIPs = getLocalIPs();
