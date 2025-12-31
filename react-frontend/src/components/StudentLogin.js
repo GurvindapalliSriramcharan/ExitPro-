@@ -15,7 +15,8 @@ function StudentLogin() {
     const fullEmail = email.includes('@') ? email : `${email}@vnrvjiet.in`;
     
     try {
-      const response = await axios.post('/student/login', {
+      // eslint-disable-next-line no-unused-vars
+      await axios.post('/student/login', {
         email: fullEmail,
         password
       });

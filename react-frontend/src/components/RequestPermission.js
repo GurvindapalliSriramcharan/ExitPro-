@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './RequestPermission.css';
 
@@ -34,18 +34,18 @@ function RequestPermission() {
     }
   };
 
-  const fetchStatus = async () => {
+  const fetchStatus = useCallback(async () => {
     try {
       const response = await axios.get(`/student/status?email=${email}`);
       setStatus(response.data.status);
     } catch (error) {
       setStatus('Error fetching status');
     }
-  };
+  }, [email]);
 
   useEffect(() => {
     fetchStatus();
-  }, []);
+  }, [fetchStatus]);
 
   const handleOtpRecipientChange = (recipient) => {
     setOtpRecipients(prev => ({

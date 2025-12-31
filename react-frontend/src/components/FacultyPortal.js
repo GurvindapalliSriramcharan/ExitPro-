@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Portal.css';
@@ -10,22 +10,23 @@ function FacultyPortal() {
   const facultyBranch = localStorage.getItem('facultyBranch');
   const facultyEmail = localStorage.getItem('facultyEmail');
 
-  useEffect(() => {
-    if (!facultyBranch) {
-      navigate('/faculty-login');
-      return;
-    }
-    loadRequests();
-  }, []);
 
-  const loadRequests = async () => {
+  const loadRequests = useCallback(async () => {
     try {
       const response = await axios.get(`/faculty/pending-requests?branch=${encodeURIComponent(facultyBranch)}`);
       setRequests(response.data.requests);
     } catch (error) {
       console.error('Error loading requests:', error);
     }
-  };
+  }, [facultyBranch]);
+
+  useEffect(() => {
+    if (!facultyBranch) {
+      navigate('/faculty-login');
+      return;
+    }
+    loadRequests();
+  }, [facultyBranch, loadRequests, navigate]);
 
   const handleDecision = async (id, decision) => {
     try {
