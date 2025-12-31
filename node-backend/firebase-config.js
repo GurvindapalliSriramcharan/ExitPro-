@@ -17,7 +17,7 @@ if (process.env.FIREBASE_SERVICE_ACCOUNT_PATH) {
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: process.env.FIREBASE_PROJECT_URL || 'https://exitpro-3912b.firebaseio.com'
+  databaseURL: process.env.FIREBASE_PROJECT_URL 
 });
 
 const db = admin.firestore();
