@@ -15,6 +15,19 @@ yarn-error.log*
 node-backend/firebase-service-account-key.json
 *.pem
 
+# Node backend environment files
+node-backend/.env
+node-backend/.env.*
+
+# Python cache and virtualenv
+node-backend/biometric/__pycache__/
+node-backend/biometric/*.pyc
+node-backend/biometric/.venv/
+node-backend/biometric/venv/
+
+# Temp files
+node-backend/temp/
+
 # Build outputs
 build/
 dist/
