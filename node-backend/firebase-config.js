@@ -7,12 +7,14 @@ const admin = require('firebase-admin');
 // Load service account key from environment variable or file path
 const fs = require('fs');
 let serviceAccount;
-if (process.env.FIREBASE_SERVICE_ACCOUNT_PATH) {
+if (fs.existsSync('./firebase-service-account-key.json')) {
+  serviceAccount = require('./firebase-service-account-key.json');
+} else if (process.env.FIREBASE_SERVICE_ACCOUNT_PATH) {
   serviceAccount = require(process.env.FIREBASE_SERVICE_ACCOUNT_PATH);
 } else if (process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
   serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON);
 } else {
-  serviceAccount = require('./firebase-service-account-key.json'); // fallback for local dev
+  throw new Error('Firebase service account key not found. Please provide via file or environment variable.');
 }
 
 admin.initializeApp({
