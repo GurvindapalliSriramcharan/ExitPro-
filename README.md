@@ -4,7 +4,7 @@ A comprehensive web application for managing student exit permissions in educati
 
 ## 🌟 Live Demo
 
-- **Frontend**: [Netlify Deployment](https://your-netlify-site.netlify.app) (Replace with your actual URL)
+- **Frontend**: [Netlify Deployment](https://exitpro.netlify.app/) 
 - **Backend API**: [Render Deployment](https://exitpro.onrender.com)
 
 ## 📋 Features
