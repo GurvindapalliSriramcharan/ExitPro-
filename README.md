@@ -10,10 +10,14 @@ A comprehensive web application for managing student exit permissions in educati
 ## 📋 Features
 
 ### For Students
-- **Signup & Login**: Secure account creation with biometric face recognition
-- **Permission Requests**: Submit exit requests with reason, time, and location
-- **Real-time Status**: Track approval status from faculty and parents
-- **OTP Verification**: Parent approval via SMS OTP
+- **Signup & Login**: Secure account creation with college provided mailid/roll no.
+- **Permission Requests**: Submission of exit requests with reason, time, and location
+- **Real-time Status**: Track approval status from parents and faculty.
+- **OTP Verification**: Parent approval via SMS OTP.
+
+  ### For Parents
+- **OTP Verification**: Approve child exit requests via SMS
+- **Notification System**: Receive OTP for permission approval
 
 ### For Faculty
 - **Branch-wise Access**: View pending requests for their department
@@ -25,9 +29,7 @@ A comprehensive web application for managing student exit permissions in educati
 - **Checkout System**: Mark students as exited/returned
 - **Real-time Updates**: Instant status synchronization
 
-### For Parents
-- **OTP Verification**: Approve child exit requests via SMS
-- **Notification System**: Receive OTP for permission approval
+
 
 ## 🛠 Tech Stack
 
@@ -120,7 +122,7 @@ A comprehensive web application for managing student exit permissions in educati
 ### 1. Student Registration
 1. Student visits the app and clicks "Sign Up"
 2. Fills registration form with personal details
-3. Uploads face image for biometric verification
+3. Uploads students personal details (name,roll no., parent's number ...etc )
 4. Account created successfully
 
 ### 2. Permission Request Process
@@ -130,18 +132,20 @@ A comprehensive web application for managing student exit permissions in educati
    - Choose time duration
    - Select location (college/hostel)
    - Choose OTP recipients (parent/alternate)
-3. **Initial Status**: "Pending Faculty Approval"
+3. **Initial Status**: "Pending Parent Approval"
 
-### 3. Faculty Approval
+   ### 3. Parent Verification
+1. **OTP Generation**: System sends OTP to parent's phone
+2. **Parent Login**: Parent or students enters recieved OTP
+3. **Final Approval**: Request status becomes "Approved"
+
+### 4. Faculty Approval
 1. **Faculty Login**: Faculty logs in with department email
 2. **Review Requests**: View pending requests for their branch
 3. **Decision Making**: Approve or reject requests
-4. **Status Update**: Approved requests move to "Pending Parent Approval"
+4. **Status Update**: Approved requests move to "Security Checkout"
 
-### 4. Parent Verification
-1. **OTP Generation**: System sends OTP to parent's phone
-2. **Parent Login**: Parent enters OTP in the app
-3. **Final Approval**: Request status becomes "Approved"
+
 
 ### 5. Security Checkout
 1. **Security Login**: Security personnel logs in
